@@ -32,10 +32,10 @@ test("GET -> BASE_URL, should return statusCode 200, and res.body.length === 1",
 
 test("POST -> BASE_URL, should return statusCode 201, and res.body.firstName === user.firstName", async () => {
     const user = {
-        firstName: 'Marisol',
-        lastName: "Garcia",
-        email: "marisol@gmail.com",
-        password: "marisol1234",
+        firstName: 'Ana',
+        lastName: "Croft",
+        email: "ana@gmail.com",
+        password: "anal1234",
         phone: "684891981"
     }
 

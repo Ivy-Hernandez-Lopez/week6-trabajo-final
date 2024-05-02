@@ -22,7 +22,7 @@ beforeAll(async () => {
 
   TOKEN = res.body.token
 
-  category = await Category.create({ name: 'tecno' })
+  category = await Category.create({ name: 'electrónicos' })
 })
 
 test("POST -> BASE_URL, should return statusCode 201, and res.body.title === products.title", async () => {

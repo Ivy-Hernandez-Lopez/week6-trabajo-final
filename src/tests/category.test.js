@@ -21,7 +21,7 @@ beforeAll(async () => {
 test("POST 'BASE_URL', should return statusCode 201, and res.body.name === category.name", async () => {
 
   const category = {
-    name: "salud y bienestar"
+    name: "juguetes"
   }
   const res = await request(app)
     .post(BASE_URL)
