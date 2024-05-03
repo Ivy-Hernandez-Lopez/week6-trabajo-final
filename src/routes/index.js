@@ -14,4 +14,4 @@ router.use('/products', routerProduct)
 router.use('/cart', verifyJwt, routerCart)
 router.use('/purchase', verifyJwt, routerPurchase)
 
-module.exports = router;
+module.exports = router; 
