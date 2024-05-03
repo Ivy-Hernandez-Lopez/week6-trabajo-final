@@ -18,6 +18,7 @@ beforeAll(async () => {
     email: "dokja@gmail.com",
     password: "dokja123"
   }
+
   const res = await request(app)
     .post('/api/v1/users/login')
     .send(user)
@@ -30,14 +31,18 @@ beforeAll(async () => {
     description: "iphone description",
     price: 3.34
   }
+
   product = await Product.create(productBody)
+
 })
 
 test("POST -> 'URL_BASE', should return status code 201, and res.body.quantity === cart.quantity", async () => {
+
   cart = {
     quantity: 5,
     productId: product.id
   }
+
   const res = await request(app)
     .post(URL_BASE)
     .send(cart)
@@ -53,6 +58,7 @@ test("POST -> 'URL_BASE', should return status code 201, and res.body.quantity =
 
 
 test("GET -> URL_BASE, should return statusCode 200, and res.body.lenght === 1", async () => {
+
   const res = await request(app)
     .get(URL_BASE)
     .set('Authorization', `Bearer ${TOKEN}`)
@@ -60,9 +66,11 @@ test("GET -> URL_BASE, should return statusCode 200, and res.body.lenght === 1",
   expect(res.statusCode).toBe(200)
   expect(res.body).toBeDefined()
   expect(res.body).toHaveLength(1)
+
 })
 
 test('GET -> URL_BASE/:id shoould return statusCode 200, and res.body.quantity ==== cart.quantity', async () => {
+
   const res = await request(app)
     .get(`${URL_BASE}/${cartId}`)
     .set('Authorization', `Bearer ${TOKEN}`)
@@ -70,15 +78,18 @@ test('GET -> URL_BASE/:id shoould return statusCode 200, and res.body.quantity =
   expect(res.statusCode).toBe(200)
   expect(res.body).toBeDefined()
   expect(res.body.quantity).toBe(cart.quantity)
+
 })
 
 
 test("PUT -> URL_BASE/:id, should return status code 200, and res.body.quantity === bodyUpdate.quantity", async () => {
+
   const bodyUpdate = { quantity: 6 }
   const res = await request(app)
     .put(`${URL_BASE}/${cartId}`)
     .send(bodyUpdate)
     .set('Authorization', `Bearer ${TOKEN}`)
+
 
   expect(res.statusCode).toBe(200)
   expect(res.body).toBeDefined()
